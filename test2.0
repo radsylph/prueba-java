@@ -1,0 +1,50 @@
+package uruPrimerosPasos;
+import java.util.Scanner;
+public class Calculadora{
+public static void main(String[] args) {
+Scanner sc = new Scanner(System.in);
+
+int num1=0;
+int num2=0;
+int select;
+int resultado=0;
+int opcion=0;
+
+	System.out.println("Que operacion quieres hacer ? \n");
+	System.out.println("1.-suma");
+	System.out.println("2.-resta");
+	System.out.println("3.-multiplicacion");
+	System.out.println("4.-division");
+	select=sc.nextInt();
+	System.out.print("ingrese el primer numero\n");
+	num1 = sc.nextInt();
+	System.out.print("ingrese el segundo numero\n");
+	num2=sc.nextInt();
+	switch(select){
+	case 1:
+		resultado= num1 + num2;
+		System.out.println("el resultado es:\n" +resultado);
+	break;
+	
+	case 2:
+		resultado= num1 - num2;
+		System.out.println("el resultado es:\n" +resultado);
+	break;
+	
+	case 3:
+		resultado= num1 * num2;
+		System.out.println("el resultado es:\n" +resultado);
+	break;
+	case 4:
+		resultado= num1 / num2;
+		System.out.println("el resultado es:\n" +resultado);
+	break;
+	default:
+		System.out.println("elija una opcion valida\n");
+	}
+	System.out.println("quieres volver al menu ?\n");
+	System.out.println("1=si");
+	System.out.println("2=no");
+	opcion=sc.nextInt();
+}
+}
