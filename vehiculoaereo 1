@@ -1,0 +1,385 @@
+package examen_1_de_poo;
+import javax.swing.JOptionPane;
+public class VehiculoAereo {
+// seleccion de modelo de aeronave	
+protected  int capacidad_carga;
+protected  int capacidad_pasajeros;
+protected  int peso_chasis;
+protected  int altura_maxima;
+protected  int distancia_maxima;
+protected  int velocidad_maxima;
+protected  int peso_total;
+
+protected  double precio;
+protected  double longitud_nave;
+protected  double altura_nave;
+public 	double envergadura;
+
+
+
+public static void main(String[] args)
+{
+	int retorno1;
+	retorno1 = 0;
+	do {
+	int seleccion = JOptionPane.showOptionDialog(null, 
+			"Bienvenido usuario, que tipo de aeronave quieres diseñar",
+			"Diseño de aeronave",
+			JOptionPane.YES_NO_CANCEL_OPTION,
+			JOptionPane.QUESTION_MESSAGE,
+			null, new String [] {"Avion de pasajeros" , "Avioneta", "Avion de carga" , "helicoptero"}, "opcion 1"
+			); 
+			
+
+	
+	switch(seleccion +1)
+	{
+	
+	case 1:
+	
+	AvionComercial boeing = new AvionComercial();
+	
+	boeing.ponercolor((String) JOptionPane.showInputDialog(null,
+			"Introduce el color del avion",
+			"seleccion de color",
+			JOptionPane.YES_NO_CANCEL_OPTION,
+			null, new String [] {"Azul" , "Rojo" , "Amarillo" , "Verde" , "Morado" , "Negro" , "Blanco" , "Gris"} , "colora"));
+	
+	boeing.estableceraire1(JOptionPane.showInputDialog("\nQuieres que el avion tenga aire acondicionado ?"));
+	
+	boeing.establecerwifi(JOptionPane.showInputDialog("\nQuieres que el avion tenga wifi ?"));
+	
+	boeing.establecerprimeraclase(JOptionPane.showInputDialog("\nQuieres que el avion tenga primera clase ?"));
+	
+	boeing.establecercomidas(JOptionPane.showInputDialog("\nQuieres que el avion tenga comidas incluidas ?"));
+	
+	int opciona = JOptionPane.showOptionDialog(
+			null ,"Que quieres hacer ahora ",
+			"seleccion de opciones",
+			JOptionPane.YES_NO_CANCEL_OPTION,
+			JOptionPane.QUESTION_MESSAGE,
+			null, new String [] {"Ver las caracteristicas del avion" , "Ver el precio del avion" , "Regresar al menu"} ,"opcion 2");
+	switch (opciona +1)
+	{
+	case 1:
+		System.out.println(boeing.dimecolor());
+		
+		System.out.println(boeing.dimelongitud1());
+		
+		System.out.println(boeing.dimealtura1());
+		
+		System.out.println(boeing.dimecarga1());
+		
+		System.out.println(boeing.dimepasajeros1());
+		
+		System.out.println(boeing.dimemotores1());
+		
+		System.out.println(boeing.potenciamotor1());
+		
+		System.out.println(boeing.dimepeso1());
+		
+		
+		
+		System.out.println(boeing.dimewifi());
+		
+		System.out.println(boeing.dimecomidas());
+		
+		System.out.println(boeing.dimeprimeraclase());
+
+		System.out.println(boeing.dimeaire());
+		
+		int opcionb = JOptionPane.showOptionDialog(
+				null ,"Que quieres hacer ahora ",
+				"seleccion de opciones",
+				JOptionPane.YES_NO_CANCEL_OPTION,
+				JOptionPane.QUESTION_MESSAGE,
+				null, new String [] {"Ver el precio del avion" , "Regresar al menu" , "salir del programa"} ,"opcion 2a");
+		switch (opcionb +1)
+		{
+		
+		case 1:
+			System.out.println(boeing.dimeprecio1());
+			break;
+		case 2:
+			retorno1=1;
+			break;
+		case 3:
+			System.exit(opcionb);
+			break;
+		}
+		
+		break;
+	case 2:
+		System.out.println(boeing.dimeprecio1());
+		
+		int opcionc = JOptionPane.showOptionDialog(
+				null ,"Que quieres hacer ahora ",
+				"seleccion de opciones",
+				JOptionPane.YES_NO_CANCEL_OPTION,
+				JOptionPane.QUESTION_MESSAGE,
+				null, new String [] {"Ver caracteristicas del avion" , "Regresar al menu principal" , "salir del programa"} ,"opcion 2b");
+		switch (opcionc +1)
+		{
+		case 1:
+			System.out.println(boeing.dimecolor());
+			
+			System.out.println(boeing.dimelongitud1());
+			
+			System.out.println(boeing.dimealtura1());
+			
+			System.out.println(boeing.dimecarga1());
+			
+			System.out.println(boeing.dimepasajeros1());
+			
+			System.out.println(boeing.dimemotores1());
+			
+			System.out.println(boeing.potenciamotor1());
+			
+			System.out.println(boeing.dimepeso1());
+			
+			
+			
+			System.out.println(boeing.dimewifi());
+			
+			System.out.println(boeing.dimecomidas());
+			
+			System.out.println(boeing.dimeprimeraclase());
+
+			System.out.println(boeing.dimeaire());
+			
+			break;
+		case 2:
+			retorno1=1;
+			break;
+		case 3:
+			System.exit(opcionc);
+			break;
+		}
+		break;
+	case 3:
+		retorno1 = 1;
+		break;
+	}
+	break;
+	//
+	case 2:
+		System.out.print("tu mama");
+	break;
+	case 3:
+	break;
+	case 4:
+	break;
+	}
+	
+}while (retorno1 == 1);
+}
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+package examen_1_de_poo;
+
+public class AvionComercial extends VehiculoAereo{
+	
+
+	private int motor;
+	private int potencia_motor;
+	private double precio;
+	
+	
+	private String color;
+	
+	private boolean aire;
+	private boolean wifi;
+	private boolean primeraclase;
+	private boolean comidas;
+	
+	public AvionComercial() {
+		super();
+		capacidad_carga=333400;// kg
+		capacidad_pasajeros=325; //contando tripulacion
+		peso_chasis=162400; //kg
+		altura_maxima=10500; //m
+		distancia_maxima=14310;//km
+		velocidad_maxima= 945; //km/h
+		
+		
+		longitud_nave=70.66;//m
+		altura_nave=19.3;//m
+		envergadura=59.64;//m
+		
+		peso_total=183500; //kg
+		motor=4;
+		potencia_motor=66500; //lb
+	
+		
+		
+	}
+	
+	//getters
+	public String dimeprecio1()
+	{
+		precio=capacidad_carga + capacidad_pasajeros + peso_total * 1.5;
+		if (aire)
+		{
+			precio=precio+500000;
+		}
+		if (wifi)
+		{
+			precio=precio+150000;
+		}
+		if (comidas)
+		{
+			precio=precio+15000;
+		}
+		if (primeraclase)
+		{
+			precio=precio+1000000;
+		}
+		System.out.println("\nEl precio de el avion es de " +precio +" millones de dolares");
+		return"";
+	}
+	public String dimepeso1()
+	{
+		System.out.println("\nEl peso de el avion es de " +peso_total +"toneladas");
+		return"";
+	}
+	public String dimecolor()
+	{
+		System.out.println("\nEl color del avion es :"  +color);
+	
+		return "";
+	}
+	public String dimelongitud1() 
+	{
+		System.out.println("\nLa longitud del avion es :" +longitud_nave);
+		return"";
+	}
+	public String dimealtura1()
+	{
+		System.out.println("\nLa altura del avion es :" +altura_nave);
+		return"";
+	}
+	public String dimemotores1()
+	{
+		System.out.println("\nEl avion tiene " +motor+ " motores" + " y su potencia es de " +potencia_motor + " libras por pie cada motor");
+		return"";
+	}
+	public String dimepasajeros1()
+	{
+		System.out.println("\nEl avion tiene capacidad maxima para " +capacidad_pasajeros+ " pasajeros");
+		return "";
+	}
+	public String dimecarga1()
+	{
+		System.out.println("\nLa capacidad de carga maxima del avion es de " +capacidad_carga+ " kg");
+		return"";
+	}
+	public String potenciamotor1()
+	{
+		System.out.println("\nLa potencia del motor es de :" +potencia_motor+ " lb por pie");
+		return"";
+	}
+	public String dimewifi()
+	{
+		if (wifi)
+		{
+			System.out.println("\nEl avion cuenta con wifi para los pasajeros");
+		}
+		else 
+		{
+			System.out.println("\nEl avion no cuenta con wifi para los pasajeros");
+		}
+		return "";
+	}
+	public String dimeprimeraclase()
+	{
+		if(primeraclase)
+		{
+			System.out.println("\nEl avion cuenta con primera clase");
+		}
+		else
+		{
+			System.out.println("\nEl avion no cuenta con primera clase");
+		}
+		return "";
+	}
+	public String dimecomidas()
+	{
+		if (comidas)
+		{
+			System.out.println("\nEl avion cuenta con comida incluida para los pasajeros");
+		}
+		else 
+		{
+			System.out.println("\nEl avion no cuenta con comida incluida para los pasajeros");
+		}
+		return "";
+	}
+	public String dimeaire()
+	{
+		if(aire)
+		{
+			System.out.println("\nEl avion tiene aire acondicionado");
+		}
+		else
+		{
+			System.out.println("\nEl avion no tiene aire acondicionado");
+		}
+		return "";
+	}
+	//setters
+	
+		public void ponercolor (String colora)
+		{
+			color=colora;
+		}
+		
+		public void estableceraire1(String aire)
+		{
+			if(aire.equalsIgnoreCase("si"))
+			{
+				this.aire = true;
+			}
+			else
+			{
+				this.aire = false;
+			}
+		}
+		
+		public void establecerprimeraclase(String primeraclase)
+		{
+			if(primeraclase.equalsIgnoreCase("si"))
+			{
+				this.primeraclase = true;
+			}
+			else 
+			{
+				this.primeraclase = false;
+			}
+		}
+		
+		public void establecerwifi(String wifi)
+		{
+			if(wifi.equalsIgnoreCase("si"))
+			{
+				this.wifi = true;
+			}
+			else 
+			{
+				this.wifi = false;
+			}
+		}
+		
+		public void establecercomidas(String comidas)
+		{
+			if(comidas.equalsIgnoreCase("si"))
+			{
+				this.comidas = true;
+			}
+			else 
+			{
+				this.comidas = false;
+			}
+		}
+	
+	
+	}
