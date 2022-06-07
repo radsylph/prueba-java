@@ -1,0 +1,39 @@
+package sql;
+import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class prueba_conexion {
+	public static void main (String [] args)
+	{
+	int contador = 0;
+	String BD ="jdbc:postgresql://localhost:5432/data";
+	String usuario ="postgres";
+	String contraseña ="123";
+	try
+	{
+		
+		Connection conectar = DriverManager.getConnection(BD , usuario ,contraseña);
+		Statement stmt = conectar.createStatement ();
+		stmt.executeQuery ("explain analyze select * from data");
+		ResultSet rs =stmt.getResultSet();
+		while (rs.next())
+		{
+			for (int i = 0; i < 10; i++) {
+					contador=i;
+					
+			}
+			System.out.println("columna " +contador+ " retornada");
+			System.out.println(rs.getString(1));
+			
+			
+			
+		}
+	}catch(Exception e) {
+		JOptionPane.showMessageDialog(null, "error al conectar" +e);
+	}
+	
+	}
+}
